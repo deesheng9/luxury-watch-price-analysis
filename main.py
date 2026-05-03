@@ -1,11 +1,16 @@
 import pandas as pd
+from utils.helpers import setup_environment
 from preprocessing.cleaner import clean_data
 from preprocessing.encoder import encode_features
 from models.ml_models import train_model
 from evaluation.evaluator import evaluate_model
+from visualization.plotter import generate_correlation_heatmap
 
 def main():
     print("--- Luxury Watch Price Analysis System ---")
+    
+    # Phase 0: Utility Setup
+    setup_environment()
     
     # Phase 1: Data Loading
     file_path = 'data/Luxury watch.csv'
@@ -23,12 +28,16 @@ def main():
     print("\n[Phase 3] Feature Engineering")
     df_encoded = encode_features(df_cleaned)
     
-    # Phase 4: Model Training
-    print("\n[Phase 4] Model Training")
+    # Phase 4: Visualization
+    print("\n[Phase 4] Visualization")
+    generate_correlation_heatmap(df_encoded)
+    
+    # Phase 5: Model Training
+    print("\n[Phase 5] Model Training")
     model, X_test, y_test = train_model(df_encoded)
     
-    # Phase 5: Evaluation
-    print("\n[Phase 5] Model Evaluation")
+    # Phase 6: Evaluation and Validation
+    print("\n[Phase 6] Model Evaluation")
     evaluate_model(model, X_test, y_test)
     
     print("\n--- Pipeline Execution Completed Successfully ---")
