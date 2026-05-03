@@ -1,32 +1,37 @@
 import pandas as pd
 from preprocessing.cleaner import clean_data
+from preprocessing.encoder import encode_features
+from models.ml_models import train_model
+from evaluation.evaluator import evaluate_model
 
 def main():
     print("--- Luxury Watch Price Analysis System ---")
     
-    # Define the data file path
+    # Phase 1: Data Loading
     file_path = 'data/Luxury watch.csv'
-    
     try:
-        # Load the dataset
         df = pd.read_csv(file_path)
-        print(f"Dataset loaded successfully. Original row count: {len(df)}")
     except FileNotFoundError:
-        print(f"Error: CSV file not found at {file_path}. Please check the directory.")
+        print(f"Error: CSV file not found at {file_path}.")
         return
 
-    # Process and clean the data
-    print("Processing data...")
+    # Phase 2: Preprocessing and Cleaning
+    print("\n[Phase 2] Data Cleaning")
     df_cleaned = clean_data(df)
     
-    # Display the result preview
-    print("\n--- Cleaned Data Preview (Top 5 rows) ---")
-    print(df_cleaned.head())
+    # Phase 3: Feature Engineering
+    print("\n[Phase 3] Feature Engineering")
+    df_encoded = encode_features(df_cleaned)
     
-    # Export the processed data for modeling
-    output_path = 'data/cleaned_watch_data.csv'
-    df_cleaned.to_csv(output_path, index=False)
-    print(f"\nProcessed data saved to: {output_path}")
+    # Phase 4: Model Training
+    print("\n[Phase 4] Model Training")
+    model, X_test, y_test = train_model(df_encoded)
+    
+    # Phase 5: Evaluation
+    print("\n[Phase 5] Model Evaluation")
+    evaluate_model(model, X_test, y_test)
+    
+    print("\n--- Pipeline Execution Completed Successfully ---")
 
 if __name__ == "__main__":
     main()
