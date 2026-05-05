@@ -1,5 +1,5 @@
-import matplotlib.pyplot as plt
-import seaborn as sns
+import matplotlib.pyplot as plt 
+import seaborn as sns 
 import os
 
 def generate_correlation_heatmap(df, output_path='outputs/plots/correlation.png'):
