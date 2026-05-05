@@ -4,7 +4,7 @@ from preprocessing.cleaner import clean_data
 from preprocessing.encoder import encode_features
 from models.ml_models import train_model
 from evaluation.evaluator import evaluate_model
-from visualization.plotter import generate_correlation_heatmap, generate_price_histogram
+from visualization.plotter import generate_all_plots
 
 def main():
     print("--- Luxury Watch Price Analysis System ---")
@@ -30,8 +30,7 @@ def main():
     
     # Phase 4: Visualization
     print("\n[Phase 4] Visualization")
-    generate_correlation_heatmap(df_encoded)
-    generate_price_histogram(df_cleaned)
+    generate_all_plots(df_cleaned, df_encoded)
     
     # Phase 5: Model Training
     print("\n[Phase 5] Model Training")
