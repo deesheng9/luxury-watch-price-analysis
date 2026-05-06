@@ -1,28 +1,28 @@
-2026-05-06 08:52:55,134 - INFO - Utility: Environment setup complete. Output and log directories are ready.
-2026-05-06 08:52:55,134 - INFO - --- Luxury Watch Price Analysis System Started ---
-2026-05-06 08:52:55,134 - INFO - [Phase 1] Loading dataset from data/Luxury watch.csv
-2026-05-06 08:52:55,140 - INFO - [Phase 2] Executing Data Cleaning...
-2026-05-06 08:52:55,150 - INFO - [Phase 3] Executing Feature Engineering...
-2026-05-06 08:52:55,156 - INFO - [Phase 4] Generating Exploratory Data Analysis (EDA) Visualizations...
-2026-05-06 08:52:55,978 - INFO - Visualization saved successfully to: outputs/plots/correlation.png
-2026-05-06 08:52:56,226 - INFO - Visualization saved successfully to: outputs/plots/price_histogram.png
-2026-05-06 08:52:56,762 - INFO - Visualization saved successfully to: outputs/plots/average_price_by_brand.png
-2026-05-06 08:52:56,964 - INFO - Visualization saved successfully to: outputs/plots/case_diameter_vs_price.png
-2026-05-06 08:52:57,133 - INFO - Visualization saved successfully to: outputs/plots/price_by_movement_type.png
-2026-05-06 08:52:57,428 - INFO - Visualization saved successfully to: outputs/plots/case_material_counts.png
-2026-05-06 08:52:57,428 - INFO - [Phase 5] Initializing Model Training...
-2026-05-06 08:52:57,605 - INFO - Generating visualization: Feature Importance...
-2026-05-06 08:52:57,833 - INFO - Visualization saved successfully to: outputs/plots/feature_importance.png
-2026-05-06 08:52:57,833 - INFO - [Phase 6] Starting Model Evaluation...
-2026-05-06 08:52:57,833 - INFO - Evaluating model performance on test data...
-2026-05-06 08:52:57,845 - INFO - 
+2026-05-06 09:19:52,817 - INFO - Utility: Environment setup complete. Output and log directories are ready.
+2026-05-06 09:19:52,817 - INFO - --- Luxury Watch Price Analysis System Started ---
+2026-05-06 09:19:52,818 - INFO - [Phase 1] Loading dataset from data/Luxury watch.csv
+2026-05-06 09:19:52,820 - INFO - [Phase 2] Executing Data Cleaning...
+2026-05-06 09:19:52,826 - INFO - [Phase 3] Executing Feature Engineering...
+2026-05-06 09:19:52,830 - INFO - [Phase 4] Generating Exploratory Data Analysis (EDA) Visualizations...
+2026-05-06 09:19:53,544 - INFO - Visualization saved successfully to: outputs/plots/correlation.png
+2026-05-06 09:19:53,766 - INFO - Visualization saved successfully to: outputs/plots/price_histogram.png
+2026-05-06 09:19:54,265 - INFO - Visualization saved successfully to: outputs/plots/average_price_by_brand.png
+2026-05-06 09:19:54,599 - INFO - Visualization saved successfully to: outputs/plots/case_diameter_vs_price.png
+2026-05-06 09:19:54,790 - INFO - Visualization saved successfully to: outputs/plots/price_by_movement_type.png
+2026-05-06 09:19:55,114 - INFO - Visualization saved successfully to: outputs/plots/case_material_counts.png
+2026-05-06 09:19:55,114 - INFO - [Phase 5] Initializing Model Training...
+2026-05-06 09:19:55,287 - INFO - Generating visualization: Feature Importance...
+2026-05-06 09:19:55,528 - INFO - Visualization saved successfully to: outputs/plots/feature_importance.png
+2026-05-06 09:19:55,528 - INFO - [Phase 6] Starting Model Evaluation...
+2026-05-06 09:19:55,528 - INFO - Evaluating model performance on test data...
+2026-05-06 09:19:55,540 - INFO - 
 =======================================
-2026-05-06 08:52:57,845 - INFO -         MODEL EVALUATION RESULTS       
-2026-05-06 08:52:57,845 - INFO - =======================================
-2026-05-06 08:52:57,846 - INFO - Mean Squared Error (MSE): 23693273.05
-2026-05-06 08:52:57,846 - INFO - R-squared (R2 Score):     0.7825
-2026-05-06 08:52:57,846 - INFO - =======================================
+2026-05-06 09:19:55,541 - INFO -         MODEL EVALUATION RESULTS       
+2026-05-06 09:19:55,541 - INFO - =======================================
+2026-05-06 09:19:55,541 - INFO - Mean Squared Error (MSE): 23693273.05
+2026-05-06 09:19:55,541 - INFO - R-squared (R2 Score):     0.7825
+2026-05-06 09:19:55,541 - INFO - =======================================
 
-2026-05-06 08:52:57,846 - INFO - Generating visualization: Actual vs Predicted Prices...
-2026-05-06 08:52:58,186 - INFO - Visualization saved successfully to: outputs/plots/actual_vs_predicted.png
-2026-05-06 08:52:58,186 - INFO - --- Pipeline Execution Completed Successfully ---
+2026-05-06 09:19:55,541 - INFO - Generating visualization: Actual vs Predicted Prices...
+2026-05-06 09:19:55,722 - INFO - Visualization saved successfully to: outputs/plots/actual_vs_predicted.png
+2026-05-06 09:19:55,722 - INFO - --- Pipeline Execution Completed Successfully ---
