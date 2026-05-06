@@ -1,18 +1,23 @@
+import logging
 from sklearn.metrics import mean_squared_error, r2_score
+from visualization.plotter import generate_actual_vs_predicted_plot
 
 def evaluate_model(model, X_test, y_test):
     """
-    Evaluates the trained model using standard metrics (MSE and R-squared).
+    Evaluates the trained model using standard metrics and generates an evaluation plot.
     """
-    print("Evaluating model performance on test data...")
+    logging.info("Evaluating model performance on test data...")
     predictions = model.predict(X_test)
-    
+
     mse = mean_squared_error(y_test, predictions)
     r2 = r2_score(y_test, predictions)
+
+    logging.info("\n=======================================")
+    logging.info("        MODEL EVALUATION RESULTS       ")
+    logging.info("=======================================")
+    logging.info(f"Mean Squared Error (MSE): {mse:.2f}")
+    logging.info(f"R-squared (R2 Score):     {r2:.4f}")
+    logging.info("=======================================\n")
     
-    print("\n========================================")
-    print("        MODEL EVALUATION RESULTS        ")
-    print("========================================")
-    print(f"- Mean Squared Error (MSE): {mse:.2f}")
-    print(f"- R-squared (R2 Score):     {r2:.4f}")
-    print("========================================")
+    # Trigger the new evaluation plot
+    generate_actual_vs_predicted_plot(y_test, predictions)

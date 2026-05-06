@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt 
 import seaborn as sns 
 import os
+import logging
+import pandas as pd
 
 def _save_current_plot(output_path):
     """
@@ -10,7 +12,7 @@ def _save_current_plot(output_path):
     plt.tight_layout()
     plt.savefig(output_path)
     plt.close()
-    print(f"Visualization saved successfully to: {output_path}")
+    logging.info(f"Visualization saved successfully to: {output_path}")
 
 def generate_correlation_heatmap(df, output_path='outputs/plots/correlation.png'):
     """
@@ -115,3 +117,40 @@ def generate_all_plots(df_cleaned, df_encoded):
     generate_case_diameter_vs_price(df_cleaned)
     generate_price_by_movement_type(df_cleaned)
     generate_case_material_counts(df_cleaned)
+
+def generate_feature_importance_plot(model, feature_names, output_path='outputs/plots/feature_importance.png'):
+    """
+    Generates a bar chart showing the most important features in the Random Forest model.
+    """
+    logging.info("Generating visualization: Feature Importance...")
+    
+    # Extract importances from the model
+    importances = model.feature_importances_
+    feat_imp = pd.Series(importances, index=feature_names).sort_values(ascending=False).head(10)
+    
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=feat_imp.values, y=feat_imp.index, palette='magma')
+    plt.title('Top 10 Feature Importances for Price Prediction')
+    plt.xlabel('Relative Importance')
+    plt.ylabel('Feature')
+    _save_current_plot(output_path)
+
+def generate_actual_vs_predicted_plot(y_true, y_pred, output_path='outputs/plots/actual_vs_predicted.png'):
+    """
+    Generates a scatter plot comparing actual watch prices against predicted prices.
+    """
+    logging.info("Generating visualization: Actual vs Predicted Prices...")
+    plt.figure(figsize=(10, 6))
+    
+    # Plot the points
+    plt.scatter(y_true, y_pred, alpha=0.6, color='dodgerblue', edgecolor='k')
+    
+    # Plot the line of perfect prediction
+    max_val = max(y_true.max(), y_pred.max())
+    plt.plot([0, max_val], [0, max_val], color='red', linestyle='--', linewidth=2, label='Perfect Prediction')
+    
+    plt.title('Actual vs. Predicted Luxury Watch Prices')
+    plt.xlabel('Actual Price (USD)')
+    plt.ylabel('Predicted Price (USD)')
+    plt.legend()
+    _save_current_plot(output_path)
