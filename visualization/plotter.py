@@ -129,7 +129,7 @@ def generate_feature_importance_plot(model, feature_names, output_path='outputs/
     feat_imp = pd.Series(importances, index=feature_names).sort_values(ascending=False).head(10)
     
     plt.figure(figsize=(10, 6))
-    sns.barplot(x=feat_imp.values, y=feat_imp.index, palette='magma')
+    sns.barplot(x=feat_imp.values, y=feat_imp.index, hue=feat_imp.index, palette='magma', legend=False)
     plt.title('Top 10 Feature Importances for Price Prediction')
     plt.xlabel('Relative Importance')
     plt.ylabel('Feature')

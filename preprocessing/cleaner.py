@@ -11,7 +11,7 @@ def clean_data(df):
     
     # Clean the 'Price (USD)' column: remove '$' and ',' then convert to float
     if 'Price (USD)' in data.columns:
-        data['Price (USD)'] = data['Price (USD)'].replace({'\$': '', ',': ''}, regex=True).astype(float)
+        data['Price (USD)'] = data['Price (USD)'].replace({r'\$': '', ',': ''}, regex=True).astype(float)
     
     # Drop rows with missing values to ensure model stability
     data = data.dropna()
